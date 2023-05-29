@@ -1,0 +1,15 @@
+<h2>To do:</h2>
+<ul class="todo-item">
+  <li *ngFor="let todo of todos">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggleToDoCompletion(todo)"
+      />
+      <span [ngClass]="{ checked: todo.completed }">{{ todo.title }}</span>
+    </label>
+  </li>
+</ul>
+
+

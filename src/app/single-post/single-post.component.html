@@ -1,0 +1,10 @@
+<button class="back-button" (click)="goBack()">&laquo; Back</button>
+<h2>Post {{ post?.id }}</h2>
+<div>
+  <h3>{{ post?.title }}</h3>
+  <p>{{ post?.body }}</p>
+</div>
+<h3>Comments:</h3>
+<div class="comment" *ngFor="let comment of comments">
+  <div class="strong">{{ comment.name }}</div> - <span>{{ comment.body }}</span>
+</div>

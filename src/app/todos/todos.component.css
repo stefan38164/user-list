@@ -1,0 +1,30 @@
+h2 {
+  font-size: 35px;
+  margin-left: 20px;
+}
+
+.todo-item li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #faf6f6;
+  font-size: 30px;
+  transition: 0.2s;
+  font-weight: 700;
+}
+
+.todo-item li:hover {
+  background: #ddd;
+}
+
+.checked {
+  font-weight: 400;
+
+  text-decoration: line-through;
+}
+
+.todo-item li input[type="checkbox"] {
+  transform: scale(2.5);
+  margin-right: 30px;
+}

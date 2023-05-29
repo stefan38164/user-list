@@ -1,0 +1,57 @@
+.user-list {
+  counter-reset: row-counter;
+  margin-top: 20px;
+}
+
+.user-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  counter-increment: row-counter;
+}
+
+.user-item:before {
+  content: counter(row-counter) ".";
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 50px;
+  font-size: 50px;
+}
+
+.even-row {
+  background-color: lightgray;
+}
+
+.user-name {
+  margin-right: 10px;
+  font-size: 50px;
+}
+
+.user-links {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.user-link {
+  margin-right: 30px;
+  text-decoration: none;
+  color: blue;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.user-link:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.user-link:before {
+  content: "\2022"; /* Koristimo Unicode kod za ikonu (u ovom slučaju, ikona plusa) */
+  margin-right: 5px;
+  font-family: "Font Awesome 5 Free"; /* Naziv Font Awesome fonta */
+}
+
+.user-link:last-child {
+  margin-right: 0;
+}
