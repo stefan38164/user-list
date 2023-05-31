@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../data';
+import { User } from '../models/models';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.getUsers().subscribe((users) => {
+    this.apiService.getUsers().subscribe((users : User[]) => {
       this.users = users;
     });
   }

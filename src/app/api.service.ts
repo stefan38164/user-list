@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_BASE_URL } from './data';
-import { User, Album, Todo, SinglePost, Comment, Posts, Photo } from './data';
+import {API_BASE_URL, User, UserDefaultModel, Todo, SinglePost, Comment, Photo } from './models/models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +16,9 @@ export class ApiService {
     return this.http.get<User[]>(url);
   }
 
-  getAlbums(userId: number): Observable<Album[]> {
+  getAlbums(userId: number): Observable<UserDefaultModel[]> {
     const url = `${this.baseUrl}/users/${userId}/albums`;
-    return this.http.get<Album[]>(url);
+    return this.http.get<UserDefaultModel[]>(url);
   }
 
   getTodos(userId: number): Observable<Todo[]> {
@@ -27,9 +26,9 @@ export class ApiService {
     return this.http.get<Todo[]>(url);
   }
 
-  getPosts(userId: number): Observable<Posts[]> {
+  getPosts(userId: number): Observable<UserDefaultModel[]> {
     const url = `${this.baseUrl}/users/${userId}/posts`;
-    return this.http.get<Posts[]>(url);
+    return this.http.get<UserDefaultModel[]>(url);
   }
 
   getSinglePost(postId: number): Observable<SinglePost> {

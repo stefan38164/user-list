@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { SinglePost, Comment } from '../data';
+import { SinglePost, Comment } from '../models/models';
 
 @Component({
   selector: 'app-single-post',
@@ -21,7 +21,7 @@ export class SinglePostComponent implements OnInit {
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('postId');
 
-    if (userId !== null) {
+    if (userId) {
       this.postId = +userId;
       this.getPost();
       this.getComments();
@@ -29,12 +29,12 @@ export class SinglePostComponent implements OnInit {
   }
 
   getComments() {
-    this.apiService.getPostComments(this.postId).subscribe((comments) => {
+    this.apiService.getPostComments(this.postId).subscribe((comments :Comment[]) => {
       this.comments = comments;
     });
   }
   getPost() {
-    this.apiService.getSinglePost(this.postId).subscribe((post) => {
+    this.apiService.getSinglePost(this.postId).subscribe((post :SinglePost) => {
       this.post = post;
     });
   }

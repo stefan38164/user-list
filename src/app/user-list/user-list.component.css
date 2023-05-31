@@ -47,9 +47,8 @@
 }
 
 .user-link:before {
-  content: "\2022"; /* Koristimo Unicode kod za ikonu (u ovom slučaju, ikona plusa) */
+  content: "\2022";
   margin-right: 5px;
-  font-family: "Font Awesome 5 Free"; /* Naziv Font Awesome fonta */
 }
 
 .user-link:last-child {

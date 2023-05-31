@@ -23,9 +23,7 @@ h2 {
   margin-right: 30px;
   text-decoration: none;
   color: rgb(202, 89, 170);
-  font-size: 30px;
-  font-family: sans-serif;
-  font-weight: bold;
+  font: bold 30px sans-serif;
 }
 
 .album-link:hover {

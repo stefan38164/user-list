@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Album } from '../data';
+import { UserDefaultModel } from '../models/models';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -9,19 +9,19 @@ import { ApiService } from '../api.service';
   styleUrls: ['./albums.component.css'],
 })
 export class AlbumsComponent implements OnInit {
-  albums: Album[] = [];
+  albums: UserDefaultModel[] = [];
   userId!: number;
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('userId');
-    if (userId !== null) {
+    if (userId) {
       this.userId = +userId;
-      this.getAlbums();
+      this.getAlbums(this.userId);
     }
   }
-  getAlbums() {
-    this.apiService.getAlbums(this.userId).subscribe((albums) => {
+  getAlbums(id:number) {
+    this.apiService.getAlbums(id).subscribe((albums:UserDefaultModel[]) => {
       this.albums = albums;
     });
   }

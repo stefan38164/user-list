@@ -1,8 +1,9 @@
 <button class="back-button" (click)="goBack()">&laquo; Back</button>
-<div class="container">
-  <h2>{{ photo?.title }}</h2>
+<ng-container *ngIf="photo">
+  <div class="container">
+    <h2>{{ photo.title }}</h2>
 
-  <div class="image">
-    <img [src]="photo?.url" [alt]="photo?.title" />
-  </div>
-</div>
+    <div class="image">
+      <img [src]="photo.url" [alt]="photo.title" />
+    </div></div>
+  </ng-container>

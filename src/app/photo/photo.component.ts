@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Photo } from '../data';
+import { Photo } from '../models/models';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -19,18 +19,18 @@ export class PhotoComponent implements OnInit {
 
   ngOnInit() {
     const photoId = this.route.snapshot.paramMap.get('photoId');
-    if (photoId !== null) {
+    if (photoId) {
       this.photoId = +photoId;
-      this.getPhoto();
+      this.getPhoto(this.photoId);
     }
   }
 
-  getPhoto() {
-    this.apiService.getPhoto(this.photoId).subscribe((photo) => {
+  getPhoto(photoId: number):void {
+    this.apiService.getPhoto(photoId).subscribe((photo: Photo) => {
       this.photo = photo;
     });
   }
-  goBack() {
+  goBack():void {
     const userId = this.route.snapshot.paramMap.get('userId');
     this.router.navigate(['/users', userId, 'albums']);
   }

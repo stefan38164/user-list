@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Posts } from '../data';
+import { UserDefaultModel} from '../models/models';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -10,19 +10,19 @@ import { ApiService } from '../api.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: Posts[] = [];
+  posts: UserDefaultModel[] = [];
   userId!: number;
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('userId');
-    if (userId !== null) {
+    if (userId) {
       this.userId = +userId;
-      this.getPosts();
+      this.getPosts(this.userId);
     }
   }
-  getPosts() {
-    this.apiService.getPosts(this.userId).subscribe((posts) => {
+  getPosts(id:number) {
+    this.apiService.getPosts(id).subscribe((posts: UserDefaultModel[]) => {
       this.posts = posts;
     });
   }

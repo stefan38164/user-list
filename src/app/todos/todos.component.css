@@ -4,7 +4,7 @@ h2 {
 }
 
 .todo-item li {
-  cursor: pointer;
+
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
@@ -17,14 +17,50 @@ h2 {
 .todo-item li:hover {
   background: #ddd;
 }
-
+.todo-item li span {
+  cursor: pointer;
+}
 .checked {
   font-weight: 400;
-
+ 
   text-decoration: line-through;
 }
 
 .todo-item li input[type="checkbox"] {
   transform: scale(2.5);
   margin-right: 30px;
+}
+.material-icons {
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.todo-input {
+  width: 50%;
+  display: flex;
+  margin: -10px 0px 30px 25px;
+}
+
+.todo-input input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.todo-input button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-input button:hover {
+  background-color: #45a049;
 }
