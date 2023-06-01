@@ -1,0 +1,32 @@
+h2 {
+  font-size: 35px;
+  margin-left: 20px;
+}
+.album-item {
+  counter-increment: row-counter;
+  margin: 0px 0px 10px 50px;
+}
+
+.album-item:before {
+  content: counter(row-counter) ".";
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 30px;
+  font-size: 30px;
+}
+.even-row {
+  background-color: lightgray;
+}
+
+.album-link {
+  margin-right: 30px;
+  text-decoration: none;
+  color: rgb(202, 89, 170);
+  font: bold 30px sans-serif;
+}
+
+.album-link:hover {
+  background-color: #ddd;
+  color: #000;
+}

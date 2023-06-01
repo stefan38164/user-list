@@ -1,0 +1,5 @@
+<h2>Posts:</h2>
+
+<div class="post-item" *ngFor="let post of posts">
+  <a [routerLink]="['/users', userId, 'posts', post.id]">{{ post.title }}</a>
+</div>

@@ -1,0 +1,31 @@
+h2 {
+  font-size: 35px;
+  margin-left: 20px;
+}
+.post-item {
+  counter-increment: row-counter;
+  margin: 0px 0px 10px 50px;
+}
+
+.post-item:before {
+  content: counter(row-counter) ".";
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 30px;
+  font-size: 30px;
+}
+
+.post-item a {
+  margin-right: 30px;
+  text-decoration: none;
+  color: rgb(66, 32, 218);
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.post-item a:hover {
+  background-color: #ddd;
+  color: #000;
+}
